@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\halamanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,10 @@ Route::get('/login', function () {
 Route::get('login', [loginController::class,'login']);
 
 Route::get('register', [loginController::class,'register']);
+
+Route::get('homdata', [halamanController::class,'barang']);
+
+Route::get('tambahproduk', [halamanController::class,'tambah']);
+
+Route::get('updatepro', [halamanController::class,'perbaruhi']);
+

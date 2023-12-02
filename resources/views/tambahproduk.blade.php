@@ -15,7 +15,7 @@
     <div class="alert alert-danger">{{session("error")}}</div>
     @endif
     <br>
-<h3 style="text:align:center; margin-left:485px">{{$login}}</h3>
+<h3 style="text:align:center; margin-left:420px">{{$tambahproduk}}</h3>
         <form action="{{ url('login')}}" method="POST" enctype="multipart/form-data">
         <div class="container">
             @method("POST")
@@ -27,13 +27,19 @@
                 </div>
                 <div class="col">
                   <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">username</label>
-                    <input type="text" name="username" class="form-control" id="exampleFormControlInput1">
+                    <label for="exampleFormControlInput1" class="form-label">nama produk</label>
+                    <input type="text" name="nama produk" class="form-control" id="exampleFormControlInput1">
                   </div>
            
                   <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">password</label>
-                    <input type="text" name="password" class="form-control" id="exampleFormControlInput1">
+                    <label for="exampleFormControlInput1" class="form-label">harga</label>
+                    <input type="text" name="harga" class="form-control" id="exampleFormControlInput1">
+                  </div>
+
+                  
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">stok</label>
+                    <input type="text" name="stok" class="form-control" id="exampleFormControlInput1">
                   </div>
                    <br>
                    <input class="btn btn-primary" type="submit" value="DAFTAR">

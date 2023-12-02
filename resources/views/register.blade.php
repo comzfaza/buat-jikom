@@ -44,7 +44,7 @@
            
                   <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">tlp</label>
-                    <input type="number" name ="tlp" class="form-control" id="exampleFormControlInput1">
+                    <input type="text" name ="tlp" class="form-control" id="exampleFormControlInput1">
                   </div>
            
                    <br>
