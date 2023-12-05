@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
-use App\Http\Controllers\halamanController;
-
+use App\Http\Controllers\produkController;
+use App\Models\produk;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +24,15 @@ Route::get('/login', function () {
     return view ('login') ;
 });
 
+Route::get('/hapus/{id}', [produkController::class,'delete']);
+
 Route::get('login', [loginController::class,'login']);
 
 Route::get('register', [loginController::class,'register']);
 
-Route::get('homdata', [halamanController::class,'barang']);
+Route::get('homdata', [produkController::class,'barang']);
 
-Route::get('tambahproduk', [halamanController::class,'tambah']);
+Route::get('tambahproduk', [produkController::class,'tambah']);
 
-Route::get('updatepro', [halamanController::class,'perbaruhi']);
+Route::get('updatepro', [produkController::class,'perbaruhi']);
 
