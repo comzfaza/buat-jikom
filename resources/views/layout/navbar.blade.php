@@ -25,6 +25,12 @@
               <a class="nav-link active" aria-current="page" href="homdata">homdata</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="datalanggan">datalanggan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="penjualan">penjualan</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="login">login</a>
             </li>
             <li class="nav-item">
@@ -36,7 +42,19 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
                 <li><a class="dropdown-item" href="tambahproduk">tambahproduk</a></li>
-                <li><a class="dropdown-item" href="updatepro">updateproduk</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="tambahpelanggan">tambahpelanggan</a></li>
+                <li><a class="dropdown-item" href="updatepelanggan">updatepelanggan</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>

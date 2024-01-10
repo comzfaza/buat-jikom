@@ -11,7 +11,7 @@
       @include('layout.navbar')
     <br>
     <br>
-    <h3 style="text-algin:center; margin-left:650px">{{$register}}</h3>
+    <h3 style="text-algin:center; margin-left:480px">{{$register}}</h3>
         <form action="loginmasyarakat" method="POST" enctype="multipart/form-data">
         <div class="container">
             @method("POST")
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col">
                   <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">nik</label>
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
                     <input type="text" name="nik" class="form-control"id="exampleFormControlInput1">
                   </div>
            

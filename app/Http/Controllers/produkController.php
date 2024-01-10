@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class produkController extends Controller
@@ -33,12 +34,27 @@ class produkController extends Controller
   function berubah($id){
     $id = (int) $id;
 
-    $affected = DB::table('pengaduan')
+    $affected = DB::table('produk')
         ->where('id', $id)
-        ->update(['isi_laporan' => request()->isi_laporan]);
+        ->update(['stok' => request()->stok]);
 
-  return redirect('home');
+  return redirect('homdata');
 }
+  function tambahproduk(request $request){
+    
+    Auth::user();
+
+    $produk = $request->namaproduk;
+    $harga = $request->harga;
+    $stok = $request->stok;
+
+    DB::table('produk')->insert([
+      'namaproduk'=> $produk,
+      'harga'=> $harga,
+      'stok'=> $stok
+    ]);
+    return redirect('homdata');
+  }
 
     
 }

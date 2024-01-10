@@ -15,7 +15,7 @@
     <div class="alert alert-danger">{{session("error")}}</div>
     @endif
     <br>
-<h3 style="text:align:center; margin-left:420px">{{$updatepro}}</h3>
+<h3 style="text:align:center; margin-left:580px">{{$updatepro}}</h3>
         <form action="{{ url('login')}}" method="POST" enctype="multipart/form-data">
         <div class="container">
             @method("POST")

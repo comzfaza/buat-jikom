@@ -15,8 +15,8 @@
     <div class="alert alert-danger">{{session("error")}}</div>
     @endif
     <br>
-<h3 style="text:align:center; margin-left:580px">{{$tambahproduk}}</h3>
-        <form action="tambahproduk" method="POST" enctype="multipart/form-data">
+<h3 style="text:align:center; margin-left:580px">{{$tambahpelanggan}}</h3>
+        <form action="{{ url('login')}}" method="POST" enctype="multipart/form-data">
         <div class="container">
             @method("POST")
             @csrf
@@ -27,19 +27,19 @@
                 </div>
                 <div class="col">
                   <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">nama produk</label>
-                    <input type="text" name="namaproduk" class="form-control" id="exampleFormControlInput1">
+                    <label for="exampleFormControlInput1" class="form-label">nama</label>
+                    <input type="text" name="nama" class="form-control" id="exampleFormControlInput1">
                   </div>
            
                   <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">harga</label>
-                    <input type="text" name="harga" class="form-control" id="exampleFormControlInput1">
+                    <label for="exampleFormControlInput1" class="form-label">alamat</label>
+                    <input type="text" name="alamat" class="form-control" id="exampleFormControlInput1">
                   </div>
 
                   
                   <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">stok</label>
-                    <input type="text" name="stok" class="form-control" id="exampleFormControlInput1">
+                    <label for="exampleFormControlInput1" class="form-label">no telp</label>
+                    <input type="text" name="no telp" class="form-control" id="exampleFormControlInput1">
                   </div>
                    <br>
                    <input class="btn btn-primary" type="submit" value="DAFTAR">

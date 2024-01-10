@@ -10,19 +10,16 @@
 <body>
   @include('layout.navbar')
 
-@section('content')
-@endsection
-<div class="table">
+<div class="ct">
 <div class="container">
+    <h1 style="text-align: center">data produk</h1>
   <table class="table table-bordered">
     <thead>
-
       <tr>
-        <th scope="col">produkID</th>
+        <th scope="col">penjualanID</th>
         <th scope="col">namaproduk</th>
         <th scope="col">harga</th>
         <th scope="col">stok</th>
-        <th scope="col">Opsi</th>
       </tr>
     </thead>
     <tbody>

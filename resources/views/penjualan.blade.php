@@ -10,13 +10,11 @@
 <body>
   @include('layout.navbar')
 
-@section('content')
-@endsection
-<div class="table">
+<div class="ct">
 <div class="container">
+    <h1 style="text-align: center">data penjualan</h1>
   <table class="table table-bordered">
     <thead>
-
       <tr>
         <th scope="col">produkID</th>
         <th scope="col">namaproduk</th>
@@ -26,19 +24,20 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($produk as $produk)
+      @foreach($penjualan as $penjualan)
       <tr>
-      <td>{{$produk->pelangganID}}</td>
-      <td>{{$produk->Namapelanggan}}</td>
-      <td>{{$produk->Alamat}}</td>
-      <td>{{$produk->Nomortelepon}}</td>
+      <td>{{$penjualan->produkID}}</td>
+      <td>{{$penjualan->namaproduk}}</td>
+      <td>{{$penjualan->harga}}</td>
+      <td>{{$penjualan->stok}}</td>
       <td>
-        <a href="hapus/{{$pelanggan->produkID}}"><button type="button" class="btn btn-danger">hapus</button></a>
-        <a href="update/{{$pelanggan->id}}"><button type="button" class="btn btn-danger">update</button></a>
-     </td>
-    </tr>
- 
- @endforeach  
+        <a href="hapus/{{$penjualan->produkID}}"><button type="button" class="btn btn-danger">hapus</button></a>
+        <a href="update/{{$penjualan->id}}"><button type="button" class="btn btn-danger">update</button></a>
+      </td>
+          </tr>
+
+        
+        @endforeach
     </tbody>
   </table>
  
