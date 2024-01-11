@@ -11,11 +11,9 @@
       @include('layout.navbar')
     <br>
     <br>
-    @if(session("error"))
-    <div class="alert alert-danger">{{session("error")}}</div>
-    @endif
+   
     <br>
-<h3 style="text:align:center; margin-left:580px">{{$tambahproduk}}</h3>
+<h3 style="text:align:center; margin-left:580px">Tambah Produk</h3>
         <form action="tambahproduk" method="POST" enctype="multipart/form-data">
         <div class="container">
             @method("POST")

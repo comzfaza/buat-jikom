@@ -11,14 +11,11 @@
       @include('layout.navbar')
     <br>
     <br>
-    @if(session("error"))
-    <div class="alert alert-danger">{{session("error")}}</div>
-    @endif
     <br>
 <h3 style="text:align:center; margin-left:580px">{{$updatepro}}</h3>
-        <form action="{{ url('login')}}" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
         <div class="container">
-            @method("POST")
+            @method("put")
             @csrf
             <div class="container text-center">
               <div class="row">
@@ -28,7 +25,7 @@
                 <div class="col">
                   <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">nama produk</label>
-                    <input type="text" name="nama produk" class="form-control" id="exampleFormControlInput1">
+                    <input type="text" name="namaproduk" class="form-control" id="exampleFormControlInput1">
                   </div>
            
                   <div class="mb-3">

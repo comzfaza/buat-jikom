@@ -18,23 +18,23 @@
     <thead>
 
       <tr>
-        <th scope="col">produkID</th>
-        <th scope="col">namaproduk</th>
-        <th scope="col">harga</th>
-        <th scope="col">stok</th>
+        <th scope="col">pelangganID</th>
+        <th scope="col">Namapelanggan</th>
+        <th scope="col">Alamat</th>
+        <th scope="col">Nomortelepon</th>
         <th scope="col">Opsi</th>
       </tr>
     </thead>
     <tbody>
-      @foreach($produk as $produk)
+      @foreach($pelanggan as $pelanggan)
       <tr>
-      <td>{{$produk->produkID}}</td>
-      <td>{{$produk->namaproduk}}</td>
-      <td>{{$produk->harga}}</td>
-      <td>{{$produk->stok}}</td>
+      <td>{{$pelanggan->pelangganID}}</td>
+      <td>{{$pelanggan->Namapelanggan}}</td>
+      <td>{{$pelanggan->Alamat}}</td>
+      <td>{{$pelanggan->Nomortelepon}}</td>
       <td>
-        <a href="hapus/{{$produk->produkID}}"><button type="button" class="btn btn-danger">hapus</button></a>
-        <a href="update/{{$produk->produkID}}"><button type="button" class="btn btn-danger">update</button></a>
+        <a href="hapuspelanggan/{{$pelanggan->pelangganID}}"><button type="button" class="btn btn-danger">hapus</button></a>
+        <a href="update/{{$pelanggan->pelangganID}}"><button type="button" class="btn btn-danger">update</button></a>
      </td>
     </tr>
  

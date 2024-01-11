@@ -11,9 +11,6 @@
       @include('layout.navbar')
     <br>
     <br>
-    @if(session("error"))
-    <div class="alert alert-danger">{{session("error")}}</div>
-    @endif
     <br>
 <h3 style="text:align:center; margin-left:580px">{{$tambahpelanggan}}</h3>
         <form action="{{ url('login')}}" method="POST" enctype="multipart/form-data">

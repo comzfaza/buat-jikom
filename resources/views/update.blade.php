@@ -12,13 +12,13 @@
 
     
     
-    <form action="{{route('update',['id' => $data['id']])}}" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
         @method("put")
         @csrf
 
     <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label">stok</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="isi_laporan" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="stok" type="number" rows="3"></textarea>
     </div>
     <input class="btn btn-primary" type="submit"  value= "update" >
     </form>

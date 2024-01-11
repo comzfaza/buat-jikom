@@ -32,7 +32,7 @@
       <td>{{$pelanggan->Alamat}}</td>
       <td>{{$pelanggan->Nomortelepon}}</td>
       <td>
-        <a href="hapus/{{$pelanggan->pelangganID}}"><button type="button" class="btn btn-danger">hapus</button></a>
+        <a href="hapuspelanggan/{{$pelanggan->pelangganID}}"><button type="button" class="btn btn-danger">hapus</button></a>
         <a href="update/{{$pelanggan->id}}"><button type="button" class="btn btn-danger">update</button></a>
       </td>
           </tr>

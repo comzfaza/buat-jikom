@@ -16,30 +16,54 @@ class produkController extends Controller
 
       return view('homdata',['data produk' => $produk, 'produk' => $data]);
     }
-    function tambah(){
-      $tambahproduk = 'Tambah Produk';
 
-      return view('tambahproduk', ['tambahproduk' => $tambahproduk]);
+    function tambah(){
+
+      return view('tambahproduk');
   }
+
   function perbaruhi(){
     $updatepro = 'Update Produk';
 
     return view('updatepro', ['updatepro' => $updatepro]);
   }
+
   function delete($id){
     $produk = DB :: table('produk')->where('produkID', '=',$id)->delete();
 
     return redirect()->back();
   }
-  function berubah($id){
+  
+  function edit($id){
     $id = (int) $id;
 
     $affected = DB::table('produk')
-        ->where('id', $id)
-        ->update(['stok' => request()->stok]);
+        ->where('produkID', $id)
+        ->update(['namaproduk' => request()->namaproduk]);
 
   return redirect('homdata');
-}
+  }
+
+  function update($id)
+  {
+    $produk = DB::table('produk')
+    ->where('produkID','=',$id)
+    ->first();
+    return view('update',['produk'=> $produk]);
+  }
+    
+  function perbarui(Request $request, $id){
+    $stok = $request->stok;
+    $harga = $request->harga;
+    $nama = $request->namaproduk;
+    DB::table('produk')->where('produkID', $id)
+    ->update([
+      'stok' => $stok,
+      'harga' => $harga,
+      'namaproduk' =>$nama,
+    ]);
+    return redirect("/produk");
+  }
   function tambahproduk(request $request){
     
     Auth::user();

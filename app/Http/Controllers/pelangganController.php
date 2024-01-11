@@ -25,4 +25,9 @@ class pelangganController extends Controller
   
         return view('updatepelanggan', ['update pelanggan' => $updatepelanggan]);
       }  
+      function hapus($id){
+        $pelanggan = DB :: table('pelanggan')->where('pelangganID', '=',$id)->delete();
+    
+        return redirect()->back();
+}
 }

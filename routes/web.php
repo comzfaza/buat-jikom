@@ -6,6 +6,7 @@ use App\Http\Controllers\produkController;
 use App\Http\Controllers\pelangganController;
 use App\Http\Controllers\penjualanController;
 use App\Models\produk;
+use Illuminate\Routing\RouteRegistrar;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,12 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view ('login') ;
 });
-Route::put('/update/{id}', [produkController::class,'berubah'])->name('update');
+Route::put('/update/{id}', [produkController::class,'edit'])->name('edit');
+Route::put('/updatepro/{id}', [produkController::class,'perbarui' ]);
+Route::get('/updatepro/{id}', [produkController::class,'update' ]);
 
 Route::get('/hapus/{id}', [produkController::class,'delete']);
+Route::get('/hapuspelanggan/{id}', [pelangganController::class,'hapus']);
 
 Route::get('login', [loginController::class,'login']);
 
@@ -39,7 +43,9 @@ Route::get('datalanggan', [pelangganController::class,'nama']);
 
 Route::get('penjualan', [penjualanController::class,'data']);
 
-Route::post('tambahproduk', [produkController::class,'tambah']);
+Route::get('tambahproduk', [produkController::class, 'tambah']);
+
+Route::post('tambahproduk', [produkController::class,'tambahproduk']);
 
 Route::get('updatepro', [produkController::class,'perbaruhi']);
 
@@ -47,5 +53,5 @@ Route::get('tambahpelanggan', [pelangganController::class,'plus']);
 
 Route::get('updatepelanggan', [pelangganController::class,'new']);
 
-Route::get('/update/{id}', [produkController::class,'updatebaru']);
+Route::get('/update/{id}', [produkController::class,'perbaruhi']);
 
