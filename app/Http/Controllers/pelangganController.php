@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\pelanggan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class pelangganController extends Controller
@@ -16,18 +17,64 @@ class pelangganController extends Controller
         return view('datalanggan',['data pelanggan' => $pelanggan, 'pelanggan' => $data]);
       }
     function plus(){
-        $tambahpelanggan = 'Tambah pelanggan';
-  
-        return view('tambahpelanggan', ['tambahpelanggan' => $tambahpelanggan]);
+
+        return view('tambahpelanggan');
       }  
-      function new(){
+    function new(){
         $updatepelanggan = 'update pelanggan';
   
         return view('updatepelanggan', ['update pelanggan' => $updatepelanggan]);
       }  
-      function hapus($id){
+    function hapus($id){
         $pelanggan = DB :: table('pelanggan')->where('pelangganID', '=',$id)->delete();
     
         return redirect()->back();
-}
+      }
+
+      function edit($id){
+        $id = (int) $id;
+    
+        $affected = DB::table('pelanggan')
+            ->where('pelangganID', $id)
+            ->update(['Namapelanggan' => request()->namapelanggan]);
+    
+      return redirect('datalanggan');
+      }
+
+      function update($id)
+  {
+    $pelanggan = DB::table('pelanggan')
+    ->where('pelangganID','=',$id)
+    ->first();
+    return view('update',['pelanggan'=> $pelanggan]);
+  }
+
+  function perbarui(Request $request, $id){
+    $Namapelanggan = $request->Namapelanggan;
+    $Alamat = $request->Alamat;
+    $Nomortelepon = $request->Nomortelepon;
+    DB::table('pelanggan')->where('pelangganID', $id)
+    ->update([
+      'Namapelanggan' => $Namapelanggan,
+      'Alamat' => $Alamat,
+      'Nomortelepon' =>$Nomortelepon,
+    ]);
+    return redirect("/produk");
+  }
+    function menambah(request $request){
+    
+     Auth::user();
+
+    $nama = $request->Namapelanggan;
+    $alamat = $request->Alamat;
+    $nomortelp = $request->Nomortelepon;
+
+    DB::table('pelanggan')->insert([
+      'Namapelanggan'=> $nama,
+      'Alamat'=> $alamat,
+      'Nomortelepon'=> $nomortelp
+    ]);
+    return redirect('datalanggan');
+  }
+
 }

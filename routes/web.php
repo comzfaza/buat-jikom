@@ -44,11 +44,11 @@ Route::get('datalanggan', [pelangganController::class,'nama']);
 Route::get('penjualan', [penjualanController::class,'data']);
 
 Route::get('tambahproduk', [produkController::class, 'tambah']);
-
 Route::post('tambahproduk', [produkController::class,'tambahproduk']);
 
 Route::get('updatepro', [produkController::class,'perbaruhi']);
 
+Route::post('tambahpelanggan', [pelangganController::class,'menambah']);
 Route::get('tambahpelanggan', [pelangganController::class,'plus']);
 
 Route::get('updatepelanggan', [pelangganController::class,'new']);
