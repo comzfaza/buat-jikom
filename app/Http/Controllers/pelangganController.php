@@ -32,24 +32,23 @@ class pelangganController extends Controller
       }
 
       function edit($id){
-        $id = (int) $id;
     
-        $affected = DB::table('pelanggan')
-            ->where('pelangganID', $id)
-            ->update(['Namapelanggan' => request()->namapelanggan]);
+        $pelanggan = DB::table('pelanggan')
+            ->where('pelangganID', '=' , $id)
+            ->first();
+            return view('updatepelanggan', ['pelanggan' => $pelanggan]);
     
-      return redirect('datalanggan');
       }
 
-      function update($id)
+  function update($id)
   {
     $pelanggan = DB::table('pelanggan')
     ->where('pelangganID','=',$id)
     ->first();
-    return view('update',['pelanggan'=> $pelanggan]);
+    return view('updatepelanggan',['pelanggan'=> $pelanggan]);
   }
 
-  function perbarui(Request $request, $id){
+  function updatepelanggan(Request $request, $id){
     $Namapelanggan = $request->Namapelanggan;
     $Alamat = $request->Alamat;
     $Nomortelepon = $request->Nomortelepon;
@@ -59,7 +58,8 @@ class pelangganController extends Controller
       'Alamat' => $Alamat,
       'Nomortelepon' =>$Nomortelepon,
     ]);
-    return redirect("/produk");
+    return redirect("/datalanggan");
+
   }
     function menambah(request $request){
     
@@ -70,7 +70,7 @@ class pelangganController extends Controller
     $nomortelp = $request->Nomortelepon;
 
     DB::table('pelanggan')->insert([
-      'Namapelanggan'=> $nama,
+      'namapelanggan'=> $nama,
       'Alamat'=> $alamat,
       'Nomortelepon'=> $nomortelp
     ]);

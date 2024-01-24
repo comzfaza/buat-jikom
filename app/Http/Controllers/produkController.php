@@ -34,14 +34,17 @@ class produkController extends Controller
     return redirect()->back();
   }
   
-  function edit($id){
-    $id = (int) $id;
-
-    $affected = DB::table('produk')
-        ->where('produkID', $id)
-        ->update(['namaproduk' => request()->namaproduk]);
-
-  return redirect('homdata');
+  function edit($id, Request $request){
+    $stok = $request->stok;
+    $harga = $request->harga;
+    $nama = $request->namaproduk;
+    DB::table('produk')->where('produkID', $id)
+    ->update([
+      'stok' => $stok,
+      'harga' => $harga,
+      'namaproduk' =>$nama,
+    ]);
+    return redirect("/homdata");
   }
 
   function update($id)
@@ -49,7 +52,7 @@ class produkController extends Controller
     $produk = DB::table('produk')
     ->where('produkID','=',$id)
     ->first();
-    return view('update',['produk'=> $produk]);
+    return view('updatepro',['produk'=> $produk]);
   }
     
   function perbarui(Request $request, $id){
@@ -66,7 +69,6 @@ class produkController extends Controller
   }
   function tambahproduk(request $request){
     
-    Auth::user();
 
     $produk = $request->namaproduk;
     $harga = $request->harga;

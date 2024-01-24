@@ -33,7 +33,7 @@
       <td>{{$pelanggan->Nomortelepon}}</td>
       <td>
         <a href="hapuspelanggan/{{$pelanggan->pelangganID}}"><button type="button" class="btn btn-danger">hapus</button></a>
-        <a href="update/{{$pelanggan->id}}"><button type="button" class="btn btn-danger">update</button></a>
+        <a href="updatepelanggan/{{$pelanggan->pelangganID}}"><button type="button" class="btn btn-danger">update</button></a>
       </td>
           </tr>
 

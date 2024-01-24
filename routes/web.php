@@ -27,8 +27,13 @@ Route::get('/login', function () {
     return view ('login') ;
 });
 Route::put('/update/{id}', [produkController::class,'edit'])->name('edit');
-Route::put('/updatepro/{id}', [produkController::class,'perbarui' ]);
+Route::post('/updatepro/{id}', [produkController::class,'perbarui' ]);
 Route::get('/updatepro/{id}', [produkController::class,'update' ]);
+Route::get('/update/{id}', [produkController::class,'perbaruhi']);
+
+Route::put('/update/{id}', [pelangganController::class,'edit'])->name('edit');
+Route::get('/updatepelanggan/{id}', [pelangganController::class,'update' ]);
+Route::post('/updatepelanggan/{id}', [pelangganController::class,'updatepelanggan' ]);
 
 Route::get('/hapus/{id}', [produkController::class,'delete']);
 Route::get('/hapuspelanggan/{id}', [pelangganController::class,'hapus']);
@@ -53,5 +58,10 @@ Route::get('tambahpelanggan', [pelangganController::class,'plus']);
 
 Route::get('updatepelanggan', [pelangganController::class,'new']);
 
-Route::get('/update/{id}', [produkController::class,'perbaruhi']);
+Route::post('penjualan', [penjualanController::class,'store']);
+
+
+
+
+
 
