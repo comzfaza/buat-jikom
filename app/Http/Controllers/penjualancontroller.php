@@ -18,6 +18,7 @@ class penjualancontroller extends Controller
 
       if(!$penjualan){
         $idPenjualan = "1";
+
     }else{
       $idPenjualan = $penjualan->penjualanID;
       if($penjualan->status == "selesai"){
@@ -39,12 +40,12 @@ class penjualancontroller extends Controller
     function store(Request $request){
 
       $produk = DB::table('produk')->where('produkID', $request->produk)->first();
-      $Datapenjualan = DB::table('penjualan')->where('penjualanID',$request->penjualan)->first();
-      if(!$Datapenjualan){ //kalau tidak ada data penjualan
+      $Datapenjualan = DB::table('penjualan')->where('penjualanID',$request->idPenjualan)->first();
 
-      $penjualan = DB::table("penjualan")->insert([
+      if(!$Datapenjualan){ //kalau tidak ada data penjualan
+      $penjualan = DB::table('penjualan')->insert([
         'penjualanID'=> $request->idPenjualan,
-        'Tanggalpenjualan'=> date('y-m-d'),
+        'Tanggalpenjualan'=> date('Y-m-d'),
         'Totalharga'=>0,
         'pelangganID' =>$request->pelanggan,
         'status' => 'pending'
@@ -64,12 +65,22 @@ class penjualancontroller extends Controller
     function checkout(Request $request){
       $updatedata = DB::table('penjualan')->where('penjualanID', $request->idPenjualan)->update([
         'status' => 'selesai',
-        'Totalharga' => $request->totalharga
+        'Totalharga' => $request->Totalharga
       ]);
 
       if($updatedata){
         return redirect()->back()->with('info', 'penjualan telah berhasil');
       }
+      return redirect()->back();
+    }
+
+    function datapenjualan(){
+      $data = "Data Penjualan";
+
+      $penjualan = DB::table('penjualan')->join('pelanggan','penjualan.pelangganID','=',
+      'pelanggan.pelangganID')->get();
+
+      return view('datapenjualan',['Data penjualan'=> $data, 'penjualan' => $penjualan]);
     }
     
 }

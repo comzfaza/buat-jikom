@@ -58,7 +58,10 @@ Route::get('tambahpelanggan', [pelangganController::class,'plus']);
 
 Route::get('updatepelanggan', [pelangganController::class,'new']);
 
+Route::get('datapenjualan', [penjualanController::class,'datapenjualan']);
+
 Route::post('penjualan', [penjualanController::class,'store']);
+Route::post('checkout', [penjualanController::class,'checkout']);
 
 
 

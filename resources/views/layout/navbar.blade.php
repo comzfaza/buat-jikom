@@ -67,6 +67,7 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
                 <li><a class="dropdown-item" href="detailPenjualan">detailPenjualan</a></li>
+                <li><a class="dropdown-item" href="datapenjualan">datapenjualan</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>

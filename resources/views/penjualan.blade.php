@@ -48,9 +48,10 @@
                     @endforeach
                   </select>
                    <br>
-                   <input class="btn btn-primary w-50" type="submit" value="DAFTAR">
+                   <input class="btn btn-primary w-50" type="submit" value="beli">
                   </div>
                 </div>
+                </form>
               </center>
                 <div class="col">
                   
@@ -60,7 +61,7 @@
                   <thead>
                     <tr>
                       <th scope="col">Nama Produk</th>
-                      <th scope="col">Harga</th>
+                      <th scope="col">harga</th>
                       <th scope="col">Qty</th>
                       <th scope="col">subtotal</th>
                     </tr>
@@ -77,16 +78,12 @@
                     <?php $total_harga = $total_harga + $detailPenjualan->subtotal ?>
                         
               
-                        <a href="hapusstok/{{$produk->produkID}}"><button type="button" class="btn btn danger"
-                          >hapus</button></a>
+                        {{-- <a href="hapusstok/{{$produk->produkID}}"><button type="button" class="btn btn danger"
+                          >hapus</button></a> --}}
                       </tr>
                       @endforeach
                   </tbody>
                 </table>
-
-              </div>
-            </div>
-           
                 </div>
                 <div class="col">
                   
@@ -97,5 +94,15 @@
               <h1>Total Harga : {{number_format($total_harga,0,',','.')}}</h1>
             </div>
 
+        <form class="d-grid gap-2 mt-3" action="{{ url("/checkout")}}" method="POST">
+          @method("POST")
+          @csrf
+          <input type="hidden" name="idPenjualan" value="{{$idPenjualan}}"> 
+          <input type="hidden" name="Totalharga" value="{{$total_harga}}">
+
+          <input class="btn btn-primary" type="submit" name="submit" value="Checkout">
+        </form>
+
+        </div>
    </body>
 </html>

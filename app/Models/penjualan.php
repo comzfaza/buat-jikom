@@ -9,7 +9,7 @@ class penjualan extends Model
 {
     use HasFactory;
     public $timestamp = false;
-    protected$table = "pelanggan";
+    protected$table = "penjualan";
 
     protected $fillable = ['Tanggalpenjualan', 'Totalharga', 'pelangganID'];
 }
