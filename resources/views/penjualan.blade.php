@@ -21,7 +21,7 @@
         <div class="container">
             @method("POST")
             @csrf
-            <div class="container text-center">
+           <div class="container text-center">
               <div class="row">
                 <div class="col">
                   
@@ -49,7 +49,7 @@
                   </select>
                    <br>
                    <input class="btn btn-primary w-50" type="submit" value="beli">
-                  </div>
+                 </div>
                 </div>
                 </form>
               </center>
@@ -78,8 +78,7 @@
                     <?php $total_harga = $total_harga + $detailPenjualan->subtotal ?>
                         
               
-                        {{-- <a href="hapusstok/{{$produk->produkID}}"><button type="button" class="btn btn danger"
-                          >hapus</button></a> --}}
+                       
                       </tr>
                       @endforeach
                   </tbody>
