@@ -81,6 +81,9 @@ class produkController extends Controller
     ]);
     return redirect('homdata');
   }
+  function halaman(){
+    
+  }
 
     
 }

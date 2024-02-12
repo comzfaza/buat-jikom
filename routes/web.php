@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\produkController;
@@ -23,9 +24,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view ('login') ;
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+require __DIR__.'/auth.php';
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::put('/update/{id}', [produkController::class,'edit'])->name('edit');
 Route::post('/updatepro/{id}', [produkController::class,'perbarui' ]);
 Route::get('/updatepro/{id}', [produkController::class,'update' ]);
@@ -38,9 +51,7 @@ Route::post('/updatepelanggan/{id}', [pelangganController::class,'updatepelangga
 Route::get('/hapus/{id}', [produkController::class,'delete']);
 Route::get('/hapuspelanggan/{id}', [pelangganController::class,'hapus']);
 
-Route::get('login', [loginController::class,'login']);
-
-Route::get('register', [loginController::class,'register']);
+Route::get('halamanhom', [produkController::class,'halaman']);
 
 Route::get('homdata', [produkController::class,'barang']);
 
@@ -63,8 +74,4 @@ Route::get('datapenjualan', [penjualanController::class,'datapenjualan']);
 Route::post('penjualan', [penjualanController::class,'store']);
 Route::post('checkout', [penjualanController::class,'checkout']);
 
-
-
-
-
-
+Route::get('halamanhom', [loginController::class,'hom']);

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class loginController extends Controller
 {
+    function hom(){
+        return view('halamanhom');
+    }
     function login(){
         $login = 'Login';
 
